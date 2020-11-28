@@ -1,0 +1,35 @@
+Open the blacklist.conf file with vi:
+
+
+sudo vi /etc/modeprobe.d/blacklist.conf
+ 
+
+Scroll to the bottom of the file and press ‘o’ to insert a new line and edit. Add the following line:
+
+
+blacklist rtl8192cu
+ 
+
+Press ‘esc’ to exit insert mode, and type ‘:wq’ to write the file and exit. Sometimes, it can also help to disable power saving mode to the WiFi card:
+
+
+sudo iw dev wlan0 set power_save off
+ 
+
+You will want to get the IP address of your Nano, too (write this down, as you’ll need it for RDP and SSH):
+
+
+ifconfig
+ 
+
+Finally, install the Remote Desktop Protocol (RDP) server. I know that RDP is a proprietary protocol by Microsoft, but it seems to work better than VNC on the Nano.
+
+
+sudo apt update
+sudo apt install -y xrdp
+ 
+
+Follow this with a reboot:
+
+
+sudo reboot
